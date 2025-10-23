@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profil Xuyanzi</title>
+
+  <!-- Font & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #74ABE2, #5563DE);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      transition: background 0.5s ease;
+    }
+
+    /* Mode gelap otomatis */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: linear-gradient(135deg, #121212, #2b2b2b);
+      }
+      .card {
+        background-color: #1e1e1e;
+        color: #f5f5f5;
+      }
+      .card p {
+        color: #bbb;
+      }
+    }
+
+    .card {
+      background-color: white;
+      width: 340px;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 4px 25px rgba(0,0,0,0.25);
+      text-align: center;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 1s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .card img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .card h2 {
+      margin: 10px 0 5px;
+      color: #333;
+    }
+
+    .card p {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 25px;
+    }
+
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 8px;
+      text-decoration: none;
+      color: white;
+      background-color: #25D366;
+      padding: 10px 14px;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .social-links a.email {
+      background-color: #D44638;
+    }
+
+    .social-links a.tiktok {
+      background-color: #000000;
+    }
+
+    .social-links a i {
+      font-size: 16px;
+    }
+
+    .social-links a:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <!-- Ganti "xuyanzi.jpg" dengan nama file fotomu -->
+    <img src="xuyanzi.jpg" alt="Foto Profil Xuyanzi">
+    <h2>Xuyanzi</h2>
+    <p>Halo! Aku Xuyanzi, senang berkreasi dan berbagi hal menarik.</p>
+
+    <div class="social-links">
+      <a href="https://wa.me/6285191923519" target="_blank">
+        <i class="fab fa-whatsapp"></i> WhatsApp
+      </a>
+      <a href="mailto:xuyanzicloud@gmail.com" class="email">
+        <i class="fas fa-envelope"></i> Email
+      </a>
+      <a href="https://www.tiktok.com/@xuyanzisamp1111" target="_blank" class="tiktok">
+        <i class="fab fa-tiktok"></i> TikTok
+      </a>
+    </div>
+  </div>
+</body>
+</html>
