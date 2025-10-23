@@ -18,42 +18,32 @@
       color: #fff;
       text-align: center;
       min-height: 100vh;
-      overflow: hidden;
+      background: url('background.jpg') no-repeat center center/cover;
       display: flex;
       align-items: center;
       justify-content: center;
+      position: relative;
     }
 
-    /* === Background video tajam === */
-    video.bg-video {
-      position: fixed;
+    /* Overlay gelap di atas foto biar teks jelas */
+    body::before {
+      content: "";
+      position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      z-index: -2;
-      filter: brightness(0.9) contrast(1.1) saturate(1.2);
+      background: rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(2px);
+      z-index: 0;
     }
 
-    /* Efek gelap tipis di atas video (biar teks tetap terbaca) */
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.35);
-      z-index: -1;
-    }
-
-    /* === Card utama === */
     .container {
       position: relative;
       z-index: 1;
-      background: rgba(0, 0, 0, 0.3);
+      background: rgba(0, 0, 0, 0.35);
       border: 1px solid rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(6px);
+      backdrop-filter: blur(8px);
       border-radius: 20px;
       padding: 40px 20px;
       max-width: 450px;
@@ -73,13 +63,13 @@
       margin-bottom: 15px;
       border: 3px solid #38bdf8;
       object-fit: cover;
-      box-shadow: 0 0 25px rgba(56, 189, 248, 0.7);
+      box-shadow: 0 0 25px rgba(56, 189, 248, 0.8);
     }
 
     h1 {
       font-size: 1.9em;
       margin-bottom: 5px;
-      text-shadow: 0 0 15px #38bdf8;
+      text-shadow: 0 0 20px #38bdf8;
     }
 
     p {
@@ -98,7 +88,7 @@
       text-decoration: none;
       font-weight: 600;
       transition: all 0.3s ease;
-      box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
       max-width: 350px;
     }
 
@@ -117,13 +107,6 @@
   </style>
 </head>
 <body>
-  <!-- Background video -->
-  <video autoplay muted loop playsinline class="bg-video">
-    <source src="video.mp4" type="video/mp4" />
-  </video>
-  <div class="overlay"></div>
-
-  <!-- Konten utama -->
   <div class="container">
     <img src="profil.jpg" alt="Foto Profil Nerver Indo Roleplay" class="avatar" />
     <h1>Nerver Indo Roleplay</h1>
