@@ -22,7 +22,7 @@
       color: #fff;
     }
 
-    /* Lapisan efek awan */
+    /* Efek awan bergerak */
     .clouds {
       position: absolute;
       width: 200%;
@@ -30,18 +30,14 @@
       background: url('https://i.imgur.com/1X6k1kd.png') repeat-x;
       background-size: contain;
       animation: moveClouds 80s linear infinite;
-      opacity: 0.3;
+      opacity: 0.25;
       top: 0;
       left: -50%;
       z-index: 0;
     }
+    @keyframes moveClouds { from {transform: translateX(0);} to {transform: translateX(50%);} }
 
-    @keyframes moveClouds {
-      from {transform: translateX(0);}
-      to {transform: translateX(50%);}
-    }
-
-    /* Lapisan bintang */
+    /* Efek bintang */
     .stars {
       position: absolute;
       width: 100%;
@@ -52,11 +48,7 @@
       opacity: 0.2;
       z-index: 0;
     }
-
-    @keyframes twinkle {
-      0%, 100% {opacity: 0.25;}
-      50% {opacity: 0.4;}
-    }
+    @keyframes twinkle { 0%,100%{opacity:0.25;} 50%{opacity:0.4;} }
 
     /* Kartu profil */
     .card {
@@ -74,10 +66,7 @@
       opacity: 0;
       transform: translateY(30px);
     }
-
-    @keyframes fadeIn {
-      to {opacity: 1; transform: translateY(0);}
-    }
+    @keyframes fadeIn { to {opacity:1; transform:translateY(0);} }
 
     .card img {
       width: 120px;
@@ -88,18 +77,17 @@
       margin-bottom: 15px;
       transition: transform 0.3s ease;
     }
-
     .card img:hover {transform: scale(1.05);}
     .card h2 {font-size: 1.6rem; margin-bottom: 8px;}
     .card p {font-size: 14px; opacity: 0.9; margin-bottom: 25px;}
 
+    /* Tombol sosial */
     .social-links {
       display: flex;
       justify-content: center;
       gap: 15px;
       margin-bottom: 25px;
     }
-
     .social-links a {
       display: flex;
       align-items: center;
@@ -112,16 +100,15 @@
       transition: 0.3s;
       box-shadow: 0 0 10px rgba(255,255,255,0.3);
     }
-
     .social-links a.whatsapp { background: #25D366; }
     .social-links a.email { background: #D44638; }
     .social-links a.tiktok { background: #000; }
-
     .social-links a:hover {
       transform: translateY(-5px);
       box-shadow: 0 0 20px rgba(255,255,255,0.5);
     }
 
+    /* Bio */
     .bio {
       font-size: 13px;
       opacity: 0.9;
@@ -129,6 +116,29 @@
       padding-top: 15px;
       line-height: 1.6;
     }
+
+    /* Tombol musik */
+    .music-btn {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: rgba(255,255,255,0.2);
+      border: none;
+      border-radius: 50%;
+      width: 55px;
+      height: 55px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+      transition: 0.3s;
+      z-index: 5;
+      color: white;
+      font-size: 22px;
+      box-shadow: 0 0 10px rgba(255,255,255,0.3);
+    }
+    .music-btn:hover {transform: scale(1.1); box-shadow: 0 0 20px rgba(255,255,255,0.6);}
 
     footer {
       position: absolute;
@@ -149,7 +159,7 @@
   <div class="clouds"></div>
 
   <div class="card">
-    <img src="xuyanzi.jpg" alt="Foto Xuyanzi">
+    <img src="foto.jpg" alt="Foto Xuyanzi">
     <h2>Xuyanzi</h2>
     <p>Kreator digital & pecinta seni visual.</p>
 
@@ -165,5 +175,31 @@
   </div>
 
   <footer>© 2025 Xuyanzi — All Rights Reserved</footer>
+
+  <!-- Musik Latar -->
+  <audio id="bgMusic" loop autoplay>
+    <source src="music.mp3" type="audio/mpeg">
+    Browser kamu tidak mendukung audio.
+  </audio>
+
+  <!-- Tombol Musik -->
+  <button class="music-btn" id="musicBtn"><i class="fa-solid fa-volume-high"></i></button>
+
+  <script>
+    const music = document.getElementById("bgMusic");
+    const btn = document.getElementById("musicBtn");
+    let isPlaying = true;
+
+    btn.addEventListener("click", () => {
+      if (isPlaying) {
+        music.pause();
+        btn.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
+      } else {
+        music.play();
+        btn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+      }
+      isPlaying = !isPlaying;
+    });
+  </script>
 </body>
 </html>
