@@ -1,191 +1,84 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nerver Indo Roleplay | SA-MP Indonesia</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nerver Indo Roleplay | Link Page</title>
   <style>
     body {
+      margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: radial-gradient(circle at top, #14171c, #0a0c10);
+      background: linear-gradient(180deg, #0f172a, #1e293b);
       color: #fff;
       text-align: center;
-      margin: 0;
-      padding: 0;
+      min-height: 100vh;
     }
 
-    header {
-      padding: 70px 20px;
-      background: linear-gradient(90deg, #2196f3, #00bcd4);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 40px 20px;
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 3em;
-      font-weight: 800;
-      letter-spacing: 1px;
-    }
-
-    header p {
-      font-size: 1.2em;
-      opacity: 0.9;
-      margin-top: 10px;
-    }
-
-    section {
-      padding: 50px 20px;
-    }
-
-    .info {
-      max-width: 700px;
-      margin: 30px auto;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 15px;
-      padding: 30px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.3);
-      transition: 0.3s;
-    }
-
-    .info:hover {
-      transform: translateY(-5px);
-      background: rgba(255,255,255,0.07);
-    }
-
-    .info h2 {
-      color: #00bcd4;
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
       margin-bottom: 15px;
+      border: 3px solid #38bdf8;
     }
 
-    .btn {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 12px 30px;
-      background-color: #2196f3;
-      color: white;
+    h1 {
+      font-size: 1.8em;
+      margin-bottom: 5px;
+    }
+
+    p {
+      font-size: 0.95em;
+      color: #cbd5e1;
+      margin-bottom: 30px;
+    }
+
+    .link {
+      display: block;
+      background: rgba(255, 255, 255, 0.08);
+      margin: 12px auto;
+      padding: 14px 20px;
+      border-radius: 12px;
+      color: #fff;
       text-decoration: none;
       font-weight: 600;
-      border-radius: 8px;
-      transition: 0.3s;
+      transition: all 0.25s ease;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
     }
 
-    .btn:hover {
-      background-color: #0d6efd;
+    .link:hover {
+      background: #38bdf8;
+      color: #000;
       transform: scale(1.05);
     }
 
-    .btn-whatsapp {
-      background-color: #25D366;
-    }
-
-    .btn-whatsapp:hover {
-      background-color: #1ebe5b;
-    }
-
     footer {
-      margin-top: 60px;
-      padding: 20px;
-      background: #0a0c10;
-      color: #aaa;
-      font-size: 0.9em;
-    }
-
-    footer a {
-      color: #00bcd4;
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-
-    .status {
-      font-size: 1.1em;
-      margin-top: 10px;
-      color: #00e676;
-    }
-
-    .players {
-      font-size: 1.3em;
-      color: #00e5ff;
-      font-weight: 600;
-      margin-top: 5px;
+      margin-top: 40px;
+      font-size: 0.8em;
+      color: #94a3b8;
     }
   </style>
 </head>
 <body>
-  <header>
+  <div class="container">
+    <img src="https://i.ibb.co/6vXnP8L/samp-logo.png" alt="NIRP Logo" class="avatar" />
     <h1>Nerver Indo Roleplay</h1>
-    <p>Server SA-MP Indonesia — Roleplay Seru, Komunitas Aktif, dan Admin Ramah!</p>
-  </header>
+    <p>Server SA-MP Indonesia | Roleplay Seru & Komunitas Aktif</p>
 
-  <section>
-    <div class="info">
-      <h2>🌍 Informasi Server</h2>
-      <p><strong>Alamat IP / Hostname:</strong> www.airasiaroleplay.com</p>
-      <p><strong>Mode:</strong> Roleplay</p>
-      <p><strong>Map:</strong> San Andreas</p>
+    <!-- Tautan utama -->
+    <a href="samp://www.airasiaroleplay.com" class="link">🎮 Join Server SA-MP</a>
+    <a href="https://chat.whatsapp.com/XXXXXXX" target="_blank" class="link">💬 Grup WhatsApp</a>
+    <a href="https://discord.gg/" target="_blank" class="link">🎧 Discord Server</a>
+    <a href="https://instagram.com/" target="_blank" class="link">📸 Instagram</a>
+    <a href="https://youtube.com/" target="_blank" class="link">▶️ YouTube Channel</a>
 
-      <p id="server-status" class="status">🔄 Mengecek status server...</p>
-      <p id="player-count" class="players"></p>
-
-      <a href="samp://www.airasiaroleplay.com" class="btn">🚀 Gabung Sekarang</a>
-    </div>
-
-    <div class="info">
-      <h2>📢 Tentang Kami</h2>
-      <p>
-        Selamat datang di <strong>Nerver Indo Roleplay</strong> — server SA-MP Indonesia dengan sistem roleplay realistis, fitur seru,
-        dan komunitas aktif 24 jam! Rasakan dunia RP terbaik bersama teman-teman dari seluruh Indonesia.
-      </p>
-    </div>
-
-    <div class="info">
-      <h2>💬 Komunitas Kami</h2>
-      <p>Bergabunglah di Discord resmi kami untuk info, event, dan update terbaru:</p>
-      <a href="https://discord.gg/" target="_blank" class="btn">🎧 Discord Nerver Indo Roleplay</a>
-
-      <p style="margin-top: 20px;">Atau hubungi admin lewat WhatsApp untuk bantuan langsung:</p>
-      <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-whatsapp">💬 Chat Admin via WhatsApp</a>
-    </div>
-  </section>
-
-  <footer>
-    © 2025 Nerver Indo Roleplay | Dibuat dengan ❤️ oleh Tim Developer NIRP
-  </footer>
-
-  <script>
-    // Ganti dengan domain / IP server kamu
-    const serverAddress = "www.airasiaroleplay.com";
-    const statusEl = document.getElementById("server-status");
-    const playerEl = document.getElementById("player-count");
-
-    async function cekStatusServer() {
-      try {
-        // Menggunakan API open.mp untuk membaca status server
-        const response = await fetch(`https://api.open.mp/server/${serverAddress}`);
-        if (!response.ok) throw new Error();
-        const data = await response.json();
-
-        if (data.online) {
-          statusEl.textContent = "✅ Server Online";
-          statusEl.style.color = "#00e676";
-          playerEl.textContent = `👥 Pemain Online: ${data.players} / ${data.maxplayers}`;
-        } else {
-          statusEl.textContent = "❌ Server Offline";
-          statusEl.style.color = "#ff5252";
-          playerEl.textContent = "";
-        }
-      } catch (e) {
-        statusEl.textContent = "⚠️ Gagal memeriksa status server.";
-        statusEl.style.color = "#ffeb3b";
-        playerEl.textContent = "";
-      }
-    }
-
-    cekStatusServer();
-    // Auto refresh setiap 30 detik
-    setInterval(cekStatusServer, 30000);
-  </script>
+    <footer>© 2025 Nerver Indo Roleplay • Made with ❤️ by Tim NIRP</footer>
+  </div>
 </body>
 </html>
