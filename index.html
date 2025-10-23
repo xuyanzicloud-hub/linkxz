@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Gabung grup Nerver Indo Roleplay di WhatsApp! Stay connected with voice, video, GIFs, and group features — with safety and privacy." />
-  <title>Nerver Indo Roleplay | v2.4</title>
+  <meta name="description" content="Gabung grup Nerver Indo Roleplay di WhatsApp! Stay connected with voice and video. Messaging features you need to connect in groups. Layers of protection to help you stay safe." />
+  <title>Nerver Indo Roleplay | v2.4.3</title>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
@@ -82,7 +82,7 @@
       width: 130px;
       height: 130px;
       border-radius: 50%;
-      margin: 0 auto 20px;
+      margin: 0 auto 24px;
       border: 4px solid var(--accent);
       object-fit: cover;
       box-shadow: 0 0 25px rgba(37, 211, 102, 0.7);
@@ -91,37 +91,45 @@
     h1 {
       font-size: 1.8em;
       font-weight: 700;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
     }
 
     .whatsapp-desc {
-      font-size: 0.93em;
+      font-size: 0.94em;
       color: var(--text-secondary);
-      margin-bottom: 28px;
-      line-height: 1.6;
+      margin-bottom: 30px;
+      line-height: 1.65;
+      text-align: center;
     }
 
     .section-title {
-      font-size: 1.1em;
+      font-size: 1.12em;
       font-weight: 700;
-      margin: 30px 0 16px;
+      margin: 34px 0 16px;
       color: var(--accent);
       text-align: center;
     }
 
-    .person-card {
+    .person-card, .rule-item {
       background: rgba(255, 255, 255, 0.07);
       padding: 12px;
       border-radius: 12px;
       margin: 8px 0;
       font-weight: 600;
       font-size: 0.95em;
+      text-align: left;
     }
 
     @media (prefers-color-scheme: light) {
-      .person-card {
+      .person-card, .rule-item {
         background: rgba(0, 0, 0, 0.05);
       }
+    }
+
+    .rule-item::before {
+      content: "• ";
+      color: var(--accent);
+      font-weight: bold;
     }
 
     .link-item {
@@ -197,6 +205,8 @@
       .container { padding: 30px 20px; }
       h1 { font-size: 1.55em; }
       .avatar { width: 110px; height: 110px; }
+      .whatsapp-desc { font-size: 0.9em; }
+      .rule-item, .person-card { font-size: 0.9em; padding: 10px; }
     }
   </style>
 </head>
@@ -208,6 +218,7 @@
          onerror="this.src='https://via.placeholder.com/130/25D366/FFFFFF?text=NIRP'" />
     <h1>Nerver Indo Roleplay</h1>
 
+    <!-- ✅ Deskripsi resmi dari WhatsApp (sesuai knowledge base) -->
     <p class="whatsapp-desc">
       Stay connected with voice and video.<br>
       Say it with stickers, voice, GIFs and more.<br>
@@ -218,23 +229,36 @@
       Layers of protection to help you stay safe.
     </p>
 
+    <!-- Rules SA-MP -->
+    <h2 class="section-title">📜 Rules SA-MP Nerver Indo</h2>
+    <div class="rule-item">No Meta Gaming (jangan gunakan info OOC di dalam RP)</div>
+    <div class="rule-item">No Power Gaming / Force RP</div>
+    <div class="rule-item">Wajib menggunakan mic saat roleplay aktif</div>
+    <div class="rule-item">No Random Deathmatch (RDM)</div>
+    <div class="rule-item">No Vehicle Deathmatch (VDM)</div>
+    <div class="rule-item">Hormati semua pemain & admin</div>
+    <div class="rule-item">Ikuti instruksi admin tanpa melawan</div>
+    <div class="rule-item">Dilarang spam, flood, atau ganggu komunikasi</div>
+    <div class="rule-item">Gunakan nama karakter sesuai RP (bukan nama aneh)</div>
+    <div class="rule-item">Jaga suasana roleplay — tetap in-character!</div>
+
     <!-- Owner & Developer -->
     <h2 class="section-title">👑 Owner & Developer</h2>
-    <div class="person-card">Azam & MasDitzz</div>
+    <div class="person-card">Azam</div>
+    <div class="person-card">MasDitzz</div>
 
     <!-- Admin Team -->
     <h2 class="section-title">🛡️ Admin Team</h2>
-    <div class="person-card">Uzi</div>
+    <div class="person-card">uzi</div>
     <div class="person-card">Fauzan</div>
     <div class="person-card">Jelol</div>
-    <div class="person-card">Drakbyte</div>
+    <div class="person-card">drakbyte</div>
     <div class="person-card">Alzeen</div>
     <div class="person-card">Cipp</div>
-    <div class="person-card">Raff</div>
+    <div class="person-card">raff</div>
     <div class="person-card">Xangel</div>
     <div class="person-card">NenekAmbon</div>
-    <div class="person-card">Amba</div>
-    <!-- Tambahkan nama lain di sini jika perlu -->
+    <div class="person-card">AMBA</div>
 
     <!-- Links -->
     <h2 class="section-title">🔗 Grup & Media Sosial</h2>
