@@ -3,9 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nerver Indo Roleplay | Link Page</title>
+  <meta name="description" content="Gabung grup Nerver Indo Roleplay di WhatsApp! Stay connected dengan voice, video, GIF, dan fitur grup lengkap — aman, aktif, dan seru." />
+  <title>Nerver Indo Roleplay | WhatsApp Group</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+    :root {
+      --bg-primary: rgba(10, 15, 30, 0.85);
+      --text-primary: #ffffff;
+      --text-secondary: #e2e8f0;
+      --accent: #25D366; /* Warna WhatsApp asli */
+      --card-bg: rgba(15, 23, 42, 0.75);
+      --border-color: rgba(37, 211, 102, 0.3);
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg-primary: rgba(248, 250, 252, 0.9);
+        --text-primary: #0f172a;
+        --text-secondary: #475569;
+        --card-bg: rgba(255, 255, 255, 0.85);
+        --border-color: rgba(37, 211, 102, 0.4);
+      }
+    }
 
     * {
       margin: 0;
@@ -15,7 +39,7 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      color: #fff;
+      color: var(--text-primary);
       text-align: center;
       min-height: 100vh;
       background: url('background.jpg') no-repeat center center/cover;
@@ -23,9 +47,9 @@
       align-items: center;
       justify-content: center;
       position: relative;
+      overflow: hidden;
     }
 
-    /* Overlay gelap di atas foto biar teks jelas */
     body::before {
       content: "";
       position: absolute;
@@ -33,93 +57,216 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.55);
-      backdrop-filter: blur(2px);
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 0;
+    }
+
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
       z-index: 0;
     }
 
     .container {
       position: relative;
-      z-index: 1;
-      background: rgba(0, 0, 0, 0.35);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(8px);
-      border-radius: 20px;
-      padding: 40px 20px;
-      max-width: 450px;
-      box-shadow: 0 0 25px rgba(56, 189, 248, 0.25);
-      animation: fadeIn 1.2s ease forwards;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      z-index: 2;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      backdrop-filter: blur(14px);
+      border-radius: 24px;
+      padding: 45px 25px;
+      max-width: 480px;
+      width: 92%;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(37, 211, 102, 0.2);
     }
 
     .avatar {
-      width: 130px;
-      height: 130px;
+      width: 140px;
+      height: 140px;
       border-radius: 50%;
-      margin-bottom: 15px;
-      border: 3px solid #38bdf8;
+      margin: 0 auto 20px;
+      border: 4px solid var(--accent);
       object-fit: cover;
-      box-shadow: 0 0 25px rgba(56, 189, 248, 0.8);
+      box-shadow: 0 0 30px rgba(37, 211, 102, 0.7);
     }
 
     h1 {
-      font-size: 1.9em;
-      margin-bottom: 5px;
-      text-shadow: 0 0 20px #38bdf8;
+      font-size: 1.85em;
+      font-weight: 700;
+      margin-bottom: 14px;
     }
 
     p {
-      font-size: 0.95em;
-      color: #cbd5e1;
+      font-size: 0.98em;
+      color: var(--text-secondary);
       margin-bottom: 30px;
+      line-height: 1.5;
     }
 
-    .link {
-      display: block;
+    .link-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       background: rgba(255, 255, 255, 0.08);
-      margin: 12px auto;
-      padding: 14px 20px;
-      border-radius: 12px;
-      color: #fff;
+      margin: 14px auto;
+      padding: 16px 20px;
+      border-radius: 16px;
+      color: var(--text-primary);
       text-decoration: none;
       font-weight: 600;
       transition: all 0.3s ease;
-      box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
-      max-width: 350px;
+      width: 90%;
+      max-width: 380px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     }
 
-    .link:hover {
-      background: #38bdf8;
+    @media (prefers-color-scheme: light) {
+      .link-item {
+        background: rgba(0, 0, 0, 0.05);
+      }
+    }
+
+    .link-item:hover {
+      background: var(--accent);
       color: #000;
-      transform: scale(1.07);
-      box-shadow: 0 0 25px #38bdf8;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(37, 211, 102, 0.5);
+    }
+
+    .link-text {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .copy-btn {
+      background: none;
+      border: none;
+      color: var(--text-secondary);
+      cursor: pointer;
+      font-size: 1.1em;
+    }
+
+    .copy-btn:hover {
+      color: var(--accent);
     }
 
     footer {
       margin-top: 35px;
-      font-size: 0.8em;
-      color: #94a3b8;
+      font-size: 0.85em;
+      color: var(--text-secondary);
+    }
+
+    #toast {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: rgba(15, 23, 42, 0.9);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      opacity: 0;
+      transition: transform 0.4s, opacity 0.4s;
+      z-index: 1000;
+    }
+
+    #toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    @media (max-width: 480px) {
+      .container { padding: 35px 15px; }
+      h1 { font-size: 1.6em; }
+      .avatar { width: 120px; height: 120px; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <img src="profil.jpg" alt="Foto Profil Nerver Indo Roleplay" class="avatar" />
+  <div id="particles-js"></div>
+
+  <div class="container" id="linkContainer">
+    <img src="profil.jpg" alt="Nerver Indo Roleplay" class="avatar" 
+         onerror="this.src='https://via.placeholder.com/140/25D366/FFFFFF?text=NIRP'" />
     <h1>Nerver Indo Roleplay</h1>
-    <p>Server SA-MP Indonesia | Roleplay Seru & Komunitas Aktif</p>
+    <p>Stay connected with voice and video.<br>
+       Messaging features you need to connect in groups.<br>
+       Layers of protection to help you stay safe.</p>
 
-    <!-- Tautan -->
-    <a href="https://chat.whatsapp.com/CVmKiCAgCDk7XPD3KOqQBV" class="link">🎮 SERVER NERVER INDO</a>
-    <a href="https://chat.whatsapp.com/FIPy5mhVYPUEtqZohIiZHo" target="_blank" class="link">☠️ FNG NERVER INDO</a>
-    <a href="https://www.tiktok.com/@muhammad.fadlan78?_t=ZS-90n0qxRQhrG&_r=1" target="_blank" class="link">🎵 TIKTOK</a>
-    <a href="https://instagram.com/frditzz" target="_blank" class="link">📸 INSTAGRAM</a>
-    <a href="https://youtube.com/@cipplaventez?si=MAeFyWhm38u2aynK" target="_blank" class="link">▶️ YOUTUBE CHANNEL</a>
-
-    <footer>© 2025 Nerver Indo Roleplay • Made with ❤️ by Tim NIRP</footer>
+    <!-- Links -->
   </div>
+
+  <div id="toast">Link disalin!</div>
+
+  <!-- Particles.js -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 20, density: { enable: true, value_area: 800 } },
+        color: { value: "#25D366" },
+        shape: { type: "circle" },
+        opacity: { value: 0.15, random: true },
+        size: { value: 2, random: true },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: "#25D366",
+          opacity: 0.1,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 0.6,
+          direction: "none",
+          random: true
+        }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: { onhover: { enable: true, mode: "repulse" } }
+      },
+      retina_detect: true
+    });
+
+    const links = [
+      { url: "https://chat.whatsapp.com/CVmKiCAgCDk7XPD3KOqQBV", label: "🟢 SERVER NERVER INDO", icon: "fab fa-whatsapp" },
+      { url: "https://chat.whatsapp.com/FIPy5mhVYPUEtqZohIiZHo", label: "🆕 FNG NERVER INDO", icon: "fab fa-whatsapp" },
+      { url: "https://www.tiktok.com/@muhammad.fadlan78", label: "🎵 TIKTOK", icon: "fab fa-tiktok" },
+      { url: "https://instagram.com/frditzz", label: "📸 INSTAGRAM", icon: "fab fa-instagram" },
+      { url: "https://youtube.com/@cipplaventez", label: "▶️ YOUTUBE", icon: "fab fa-youtube" }
+    ];
+
+    const container = document.getElementById("linkContainer");
+    links.forEach((link, i) => {
+      const el = document.createElement("a");
+      el.href = link.url;
+      el.target = "_blank";
+      el.className = "link-item";
+      el.innerHTML = `
+        <span class="link-text">
+          <i class="${link.icon}"></i> ${link.label}
+        </span>
+        <button class="copy-btn" title="Salin link" onclick="copyLink(event, '${link.url}')">
+          <i class="fas fa-copy"></i>
+        </button>
+      `;
+      container.appendChild(el);
+    });
+
+    function copyLink(e, url) {
+      e.preventDefault();
+      navigator.clipboard.writeText(url).then(() => {
+        const t = document.getElementById("toast");
+        t.classList.add("show");
+        setTimeout(() => t.classList.remove("show"), 2000);
+      });
+    }
+  </script>
+
+  <footer>© 2025 Nerver Indo Roleplay • Grup WhatsApp Resmi</footer>
 </body>
 </html>
