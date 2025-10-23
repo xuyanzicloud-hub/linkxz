@@ -24,7 +24,7 @@
       justify-content: center;
     }
 
-    /* === Background video === */
+    /* === Background video tajam === */
     video.bg-video {
       position: fixed;
       top: 0;
@@ -32,26 +32,28 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      z-index: -1;
+      z-index: -2;
+      filter: brightness(0.9) contrast(1.1) saturate(1.2);
     }
 
+    /* Efek gelap tipis di atas video (biar teks tetap terbaca) */
     .overlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.55);
-      z-index: 0;
+      background: rgba(0, 0, 0, 0.35);
+      z-index: -1;
     }
 
     /* === Card utama === */
     .container {
       position: relative;
       z-index: 1;
-      background: rgba(0, 0, 0, 0.45);
+      background: rgba(0, 0, 0, 0.3);
       border: 1px solid rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(14px);
+      backdrop-filter: blur(6px);
       border-radius: 20px;
       padding: 40px 20px;
       max-width: 450px;
@@ -71,13 +73,13 @@
       margin-bottom: 15px;
       border: 3px solid #38bdf8;
       object-fit: cover;
-      box-shadow: 0 0 20px rgba(56, 189, 248, 0.6);
+      box-shadow: 0 0 25px rgba(56, 189, 248, 0.7);
     }
 
     h1 {
       font-size: 1.9em;
       margin-bottom: 5px;
-      text-shadow: 0 0 12px #38bdf8;
+      text-shadow: 0 0 15px #38bdf8;
     }
 
     p {
@@ -96,7 +98,7 @@
       text-decoration: none;
       font-weight: 600;
       transition: all 0.3s ease;
-      box-shadow: 0 0 8px rgba(56, 189, 248, 0.3);
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
       max-width: 350px;
     }
 
