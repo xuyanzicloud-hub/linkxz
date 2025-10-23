@@ -23,9 +23,10 @@
       align-items: center;
       justify-content: center;
       position: relative;
+      overflow: hidden;
     }
 
-    /* Overlay gelap di atas foto biar teks jelas */
+    /* Overlay gelap lembut */
     body::before {
       content: "";
       position: absolute;
@@ -38,6 +39,18 @@
       z-index: 0;
     }
 
+    /* Canvas Partikel */
+    #particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* Card utama */
     .container {
       position: relative;
       z-index: 1;
@@ -63,13 +76,18 @@
       margin-bottom: 15px;
       border: 3px solid #38bdf8;
       object-fit: cover;
-      box-shadow: 0 0 25px rgba(56, 189, 248, 0.8);
+      animation: pulseGlow 2.5s infinite ease-in-out;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 20px rgba(56, 189, 248, 0.6); }
+      50% { box-shadow: 0 0 35px rgba(56, 189, 248, 1); }
     }
 
     h1 {
       font-size: 1.9em;
       margin-bottom: 5px;
-      text-shadow: 0 0 20px #38bdf8;
+      text-shadow: 0 0 15px #38bdf8, 0 0 25px #38bdf8;
     }
 
     p {
@@ -80,6 +98,8 @@
 
     .link {
       display: block;
+      position: relative;
+      overflow: hidden;
       background: rgba(255, 255, 255, 0.08);
       margin: 12px auto;
       padding: 14px 20px;
@@ -90,6 +110,24 @@
       transition: all 0.3s ease;
       box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
       max-width: 350px;
+      opacity: 0;
+      transform: translateY(15px);
+      animation: fadeUp 0.8s forwards;
+    }
+
+    .link::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(56,189,248,0.6), transparent);
+      transition: all 0.5s ease;
+    }
+
+    .link:hover::before {
+      left: 100%;
     }
 
     .link:hover {
@@ -103,23 +141,61 @@
       margin-top: 35px;
       font-size: 0.8em;
       color: #94a3b8;
+      opacity: 0;
+      animation: fadeUp 1.2s forwards;
+    }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
+  <canvas id="particles"></canvas>
+
   <div class="container">
     <img src="profil.jpg" alt="Foto Profil Nerver Indo Roleplay" class="avatar" />
     <h1>Nerver Indo Roleplay</h1>
     <p>Server SA-MP Indonesia | Roleplay Seru & Komunitas Aktif</p>
 
-    <!-- Tautan -->
-    <a href="https://chat.whatsapp.com/CVmKiCAgCDk7XPD3KOqQBV" class="link">🎮 SERVER NERVER INDO</a>
-    <a href="https://chat.whatsapp.com/FIPy5mhVYPUEtqZohIiZHo" target="_blank" class="link">☠️ FNG NERVER INDO</a>
-    <a href="https://www.tiktok.com/@muhammad.fadlan78?_t=ZS-90n0qxRQhrG&_r=1" target="_blank" class="link">🎵 TIKTOK</a>
-    <a href="https://instagram.com/frditzz" target="_blank" class="link">📸 INSTAGRAM</a>
-    <a href="https://youtube.com/@cipplaventez?si=MAeFyWhm38u2aynK" target="_blank" class="link">▶️ YOUTUBE CHANNEL</a>
+    <a href="https://chat.whatsapp.com/CVmKiCAgCDk7XPD3KOqQBV" class="link" style="animation-delay: 0.4s;">🎮 SERVER NERVER INDO</a>
+    <a href="https://chat.whatsapp.com/FIPy5mhVYPUEtqZohIiZHo" target="_blank" class="link" style="animation-delay: 0.6s;">☠️ FNG NERVER INDO</a>
+    <a href="https://www.tiktok.com/@muhammad.fadlan78?_t=ZS-90n0qxRQhrG&_r=1" target="_blank" class="link" style="animation-delay: 0.8s;">🎵 TIKTOK</a>
+    <a href="https://instagram.com/frditzz" target="_blank" class="link" style="animation-delay: 1s;">📸 INSTAGRAM</a>
+    <a href="https://youtube.com/@cipplaventez?si=MAeFyWhm38u2aynK" target="_blank" class="link" style="animation-delay: 1.2s;">▶️ YOUTUBE CHANNEL</a>
 
-    <footer>© 2025 Nerver Indo Roleplay • Made with ❤️ by Tim NIRP</footer>
+    <footer style="animation-delay: 1.6s;">© 2025 Nerver Indo Roleplay • Made with ❤️ by Tim NIRP</footer>
   </div>
+
+  <script>
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+    canvas.width = innerWidth;
+    canvas.height = innerHeight;
+
+    let particles = Array.from({length: 60}, () => ({
+      x: Math.random() * innerWidth,
+      y: Math.random() * innerHeight,
+      r: Math.random() * 2 + 1,
+      dx: (Math.random() - 0.5) * 0.6,
+      dy: (Math.random() - 0.5) * 0.6
+    }));
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "rgba(56, 189, 248, 0.6)";
+      particles.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fill();
+        p.x += p.dx;
+        p.y += p.dy;
+        if (p.x < 0 || p.x > innerWidth) p.dx *= -1;
+        if (p.y < 0 || p.y > innerHeight) p.dy *= -1;
+      });
+      requestAnimationFrame(animate);
+    }
+    animate();
+  </script>
 </body>
 </html>
