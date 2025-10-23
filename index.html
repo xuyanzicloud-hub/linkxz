@@ -104,6 +104,13 @@
       margin-top: 10px;
       color: #00e676;
     }
+
+    .players {
+      font-size: 1.3em;
+      color: #00e5ff;
+      font-weight: 600;
+      margin-top: 5px;
+    }
   </style>
 </head>
 <body>
@@ -118,16 +125,18 @@
       <p><strong>Alamat IP / Hostname:</strong> www.airasiaroleplay.com</p>
       <p><strong>Mode:</strong> Roleplay</p>
       <p><strong>Map:</strong> San Andreas</p>
-      <p id="server-status" class="status">Memeriksa status server...</p>
+
+      <p id="server-status" class="status">🔄 Mengecek status server...</p>
+      <p id="player-count" class="players"></p>
+
       <a href="samp://www.airasiaroleplay.com" class="btn">🚀 Gabung Sekarang</a>
     </div>
 
     <div class="info">
       <h2>📢 Tentang Kami</h2>
       <p>
-        Selamat datang di <strong>Nerver Indo Roleplay</strong> — server SA-MP Indonesia yang menghadirkan 
-        pengalaman roleplay realistis, fitur menarik, dan komunitas aktif 24 jam!
-        Rasakan sensasi menjadi polisi, gangster, pengusaha, atau warga biasa dalam dunia NIRP.
+        Selamat datang di <strong>Nerver Indo Roleplay</strong> — server SA-MP Indonesia dengan sistem roleplay realistis, fitur seru,
+        dan komunitas aktif 24 jam! Rasakan dunia RP terbaik bersama teman-teman dari seluruh Indonesia.
       </p>
     </div>
 
@@ -146,31 +155,37 @@
   </footer>
 
   <script>
-    // Ganti IP / domain server di sini:
-    const serverIP = "www.airasiaroleplay.com";
-
+    // Ganti dengan domain / IP server kamu
+    const serverAddress = "www.airasiaroleplay.com";
     const statusEl = document.getElementById("server-status");
+    const playerEl = document.getElementById("player-count");
 
     async function cekStatusServer() {
       try {
-        // API publik open.mp (mengecek status SA-MP server)
-        const res = await fetch(`https://api.open.mp/server/${serverIP}`);
-        if (!res.ok) throw new Error();
-        const data = await res.json();
+        // Menggunakan API open.mp untuk membaca status server
+        const response = await fetch(`https://api.open.mp/server/${serverAddress}`);
+        if (!response.ok) throw new Error();
+        const data = await response.json();
 
         if (data.online) {
-          statusEl.textContent = `✅ Server Online - ${data.players} pemain online`;
+          statusEl.textContent = "✅ Server Online";
+          statusEl.style.color = "#00e676";
+          playerEl.textContent = `👥 Pemain Online: ${data.players} / ${data.maxplayers}`;
         } else {
           statusEl.textContent = "❌ Server Offline";
           statusEl.style.color = "#ff5252";
+          playerEl.textContent = "";
         }
       } catch (e) {
-        statusEl.textContent = "⚠️ Tidak dapat memeriksa status server.";
+        statusEl.textContent = "⚠️ Gagal memeriksa status server.";
         statusEl.style.color = "#ffeb3b";
+        playerEl.textContent = "";
       }
     }
 
     cekStatusServer();
+    // Auto refresh setiap 30 detik
+    setInterval(cekStatusServer, 30000);
   </script>
 </body>
 </html>
