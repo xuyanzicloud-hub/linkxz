@@ -46,7 +46,6 @@
       overflow-x: hidden;
     }
 
-    /* Background video */
     #bg-video {
       position: fixed;
       top: 0;
@@ -57,7 +56,6 @@
       z-index: -2;
     }
 
-    /* Overlay gelap di atas video */
     body::before {
       content: "";
       position: fixed;
@@ -222,7 +220,6 @@
       opacity: 1;
     }
 
-    /* Audio toggle button */
     #audio-toggle {
       position: fixed;
       bottom: 20px;
@@ -241,18 +238,9 @@
       justify-content: center;
       box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     }
-
-    @media (max-width: 480px) {
-      .container { padding: 30px 20px; }
-      h1 { font-size: 1.55em; }
-      .avatar { width: 110px; height: 110px; }
-      .whatsapp-desc, .join-prompt { font-size: 0.9em; }
-      .rule-item, .person-card, .server-ip { font-size: 0.9em; padding: 10px; }
-    }
   </style>
 </head>
 <body>
-  <!-- Background Video -->
   <video id="bg-video" autoplay muted loop playsinline>
     <source src="background.mp4" type="video/mp4">
     Your browser does not support the video tag.
@@ -265,6 +253,7 @@
          onerror="this.src='https://via.placeholder.com/130/25D366/FFFFFF?text=NIRP'" />
     <h1>Nerver Indo Roleplay</h1>
 
+    <!-- Deskripsi grup utama (dalam Inggris, karena konten generik) -->
     <p class="whatsapp-desc">
       Stay connected with voice and video.<br>
       Say it with stickers, voice, GIFs and more.<br>
@@ -319,12 +308,14 @@
         <i class="fas fa-copy"></i>
       </button>
     </a>
+    <!-- Grup FNG – deskripsi dari konten asli (bahasa Mandarin) -->
     <a href="https://chat.whatsapp.com/FIPy5mhVYPUEtqZohIiZHo" target="_blank" class="link-item">
       <span class="link-text"><i class="fab fa-whatsapp"></i> 🆕 FNG NERVER INDO</span>
       <button class="copy-btn" title="Salin link" onclick="copyLink(event, 'https://chat.whatsapp.com/FIPy5mhVYPUEtqZohIiZHo')">
         <i class="fas fa-copy"></i>
       </button>
     </a>
+    <!-- TikTok: akun tanpa konten -->
     <a href="https://www.tiktok.com/@muhammad.fadlan78" target="_blank" class="link-item">
       <span class="link-text"><i class="fab fa-tiktok"></i> 🎵 TIKTOK</span>
       <button class="copy-btn" title="Salin link" onclick="copyLink(event, 'https://www.tiktok.com/@muhammad.fadlan78')">
@@ -349,10 +340,10 @@
 
   <div id="toast">Disalin!</div>
 
-  <!-- Background Music -->
-  <audio id="bg-music" src="lagu.mp3" autoplay loop muted></audio>
-  <button id="audio-toggle" title="Nyalakan musik">
-    <i class="fas fa-volume-mute"></i>
+  <!-- Audio: TIDAK autoplay otomatis, dimulai manual -->
+  <audio id="bg-music" src="lagu.mp3" preload="auto"></audio>
+  <button id="audio-toggle" title="Putar musik">
+    <i class="fas fa-play"></i>
   </button>
 
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
@@ -402,24 +393,34 @@
       });
     }
 
-    // Audio control
+    // Kontrol musik manual
     const audio = document.getElementById('bg-music');
     const toggleBtn = document.getElementById('audio-toggle');
     const icon = toggleBtn.querySelector('i');
 
-    // Coba aktifkan suara saat pengguna klik halaman pertama kali
-    document.body.addEventListener('click', () => {
-      if (audio.muted) {
-        audio.muted = false;
-        icon.className = 'fas fa-volume-up';
+    toggleBtn.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play()
+          .then(() => {
+            icon.className = 'fas fa-volume-up';
+            toggleBtn.title = 'Matikan musik';
+          })
+          .catch(err => {
+            alert('Gagal memutar musik. Pastikan file "lagu.mp3" ada di folder yang sama.');
+            console.error(err);
+          });
+      } else {
+        audio.pause();
+        icon.className = 'fas fa-play';
+        toggleBtn.title = 'Putar musik';
       }
-    }, { once: true });
+    });
 
-    toggleBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      audio.muted = !audio.muted;
-      icon.className = audio.muted ? 'fas fa-volume-mute' : 'fas fa-volume-up';
+    // Ulang otomatis saat selesai
+    audio.addEventListener('ended', () => {
+      audio.currentTime = 0;
+      if (!audio.paused) audio.play();
     });
   </script>
 </body>
-</html>
+  </html>
