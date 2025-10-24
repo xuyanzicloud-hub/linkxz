@@ -253,7 +253,6 @@
          onerror="this.src='https://via.placeholder.com/130/25D366/FFFFFF?text=NIRP'" />
     <h1>Nerver Indo Roleplay</h1>
 
-    <!-- Deskripsi grup utama (dalam Inggris, karena konten generik) -->
     <p class="whatsapp-desc">
       Stay connected with voice and video.<br>
       Say it with stickers, voice, GIFs and more.<br>
@@ -276,6 +275,26 @@
     <div class="rule-item">Dilarang spam, flood, atau ganggu komunikasi</div>
     <div class="rule-item">Gunakan nama karakter sesuai RP (bukan nama aneh)</div>
     <div class="rule-item">Jaga suasana roleplay — tetap in-character!</div>
+
+    <h2 class="section-title">📖 Rules Lengkap</h2>
+    <a href="https://pastebin.com/HkMtstAY" target="_blank" class="link-item">
+      <span class="link-text"><i class="fas fa-file-alt"></i> 🟥 RULES BADSIDE</span>
+      <button class="copy-btn" title="Salin link" onclick="copyLink(event, 'https://pastebin.com/HkMtstAY')">
+        <i class="fas fa-copy"></i>
+      </button>
+    </a>
+    <a href="https://pastebin.com/HW6CUUg3" target="_blank" class="link-item">
+      <span class="link-text"><i class="fas fa-file-alt"></i> 🟩 RULES GOODSIDE</span>
+      <button class="copy-btn" title="Salin link" onclick="copyLink(event, 'https://pastebin.com/HW6CUUg3')">
+        <i class="fas fa-copy"></i>
+      </button>
+    </a>
+    <a href="https://pastebin.com/SXDgTCjC" target="_blank" class="link-item">
+      <span class="link-text"><i class="fas fa-file-alt"></i> ⚙️ RULES SERVER</span>
+      <button class="copy-btn" title="Salin link" onclick="copyLink(event, 'https://pastebin.com/SXDgTCjC')">
+        <i class="fas fa-copy"></i>
+      </button>
+    </a>
 
     <h2 class="section-title">🖥️ Server IP SA-MP</h2>
     <div class="server-ip">
@@ -308,32 +327,29 @@
         <i class="fas fa-copy"></i>
       </button>
     </a>
-    <!-- Grup FNG – deskripsi dari konten asli (bahasa Mandarin) -->
     <a href="https://chat.whatsapp.com/FIPy5mhVYPUEtqZohIiZHo" target="_blank" class="link-item">
       <span class="link-text"><i class="fab fa-whatsapp"></i> 🆕 FNG NERVER INDO</span>
       <button class="copy-btn" title="Salin link" onclick="copyLink(event, 'https://chat.whatsapp.com/FIPy5mhVYPUEtqZohIiZHo')">
         <i class="fas fa-copy"></i>
       </button>
     </a>
-    <!-- chat warga nerver -->
     <a href="https://chat.whatsapp.com/CpaWsuBhhguA9w0LYO03hF?mode=wwc" target="_blank" class="link-item">
-      <span class="link-text"><i class="fab fa-instagram"></i> ⌨️ YAPING WARGA NERVER INDO</span>
-      <button class="copy-btn" title="Salin link" onclick="copyLink(event, 'https://instagram.com/frditzz')">
+      <span class="link-text"><i class="fab fa-whatsapp"></i> ⌨️ YAPING WARGA NERVER INDO</span>
+      <button class="copy-btn" title="Salin link" onclick="copyLink(event, 'https://chat.whatsapp.com/CpaWsuBhhguA9w0LYO03hF?mode=wwc')">
         <i class="fas fa-copy"></i>
       </button>
-    <a/>
-    <!-- TikTok: akun tanpa konten -->
-    <a href="https://www.tiktok.com/@azzam._oconer?_t=ZS-90oM67mRbe8&_r=1" target="_blank" class="link-item">
+    </a>
+    <!-- Saluran WhatsApp Resmi (menggantikan YouTube) -->
+    <a href="https://whatsapp.com/channel/0029Vb6UWx41XquRo0rg8p3v" target="_blank" class="link-item">
+      <span class="link-text"><i class="fab fa-whatsapp"></i> 📣 SALURAN RESMI</span>
+      <button class="copy-btn" title="Salin link" onclick="copyLink(event, 'https://whatsapp.com/channel/0029Vb6UWx41XquRo0rg8p3v')">
+        <i class="fas fa-copy"></i>
+      </button>
+    </a>
+    <!-- TikTok -->
+    <a href="https://www.tiktok.com/@azzam._oconer" target="_blank" class="link-item">
       <span class="link-text"><i class="fab fa-tiktok"></i> 🎵 TIKTOK</span>
-      <button class="copy-btn" title="Salin link" onclick="copyLink(event, 'https://www.tiktok.com/@muhammad.fadlan78')">
-        <i class="fas fa-copy"></i>
-      </button>
-    </a>
-    <!-- YouTube: akun nerver -->
-    </a>
-    <a href="https://youtube.com/@cipplaventez" target="_blank" class="link-item">
-      <span class="link-text"><i class="fab fa-youtube"></i> ▶️ YOUTUBE</span>
-      <button class="copy-btn" title="Salin link" onclick="copyLink(event, 'https://youtube.com/@cipplaventez')">
+      <button class="copy-btn" title="Salin link" onclick="copyLink(event, 'https://www.tiktok.com/@azzam._oconer')">
         <i class="fas fa-copy"></i>
       </button>
     </a>
@@ -343,7 +359,6 @@
 
   <div id="toast">Disalin!</div>
 
-  <!-- Audio: TIDAK autoplay otomatis, dimulai manual -->
   <audio id="bg-music" src="lagu.mp3" preload="auto"></audio>
   <button id="audio-toggle" title="Putar musik">
     <i class="fas fa-play"></i>
@@ -396,7 +411,6 @@
       });
     }
 
-    // Kontrol musik manual
     const audio = document.getElementById('bg-music');
     const toggleBtn = document.getElementById('audio-toggle');
     const icon = toggleBtn.querySelector('i');
@@ -419,11 +433,10 @@
       }
     });
 
-    // Ulang otomatis saat selesai
     audio.addEventListener('ended', () => {
       audio.currentTime = 0;
       if (!audio.paused) audio.play();
     });
   </script>
 </body>
-  </html>
+      </html>
