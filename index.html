@@ -40,13 +40,24 @@
     body {
       font-family: 'Poppins', sans-serif;
       color: var(--text-primary);
-      background: url('background.jpg') no-repeat center center/cover;
-      background-attachment: fixed;
       min-height: 100vh;
       position: relative;
       padding: 40px 20px;
+      overflow-x: hidden;
     }
 
+    /* Background video */
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+    }
+
+    /* Overlay gelap di atas video */
     body::before {
       content: "";
       position: fixed;
@@ -54,8 +65,8 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      z-index: -2;
+      background: rgba(0, 0, 0, 0.6); /* Gelapkan video agar teks mudah dibaca */
+      z-index: -1;
     }
 
     #particles-js {
@@ -221,6 +232,12 @@
   </style>
 </head>
 <body>
+  <!-- Background Video -->
+  <video id="bg-video" autoplay muted loop playsinline>
+    <source src="background.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
   <div id="particles-js"></div>
 
   <div class="container">
@@ -228,7 +245,6 @@
          onerror="this.src='https://via.placeholder.com/130/25D366/FFFFFF?text=NIRP'" />
     <h1>Nerver Indo Roleplay</h1>
 
-    <!-- ✅ Deskripsi resmi dari grup WhatsApp (sesuai knowledge base) -->
     <p class="whatsapp-desc">
       Stay connected with voice and video.<br>
       Say it with stickers, voice, GIFs and more.<br>
@@ -253,8 +269,8 @@
     <div class="rule-item">Jaga suasana roleplay — tetap in-character!</div>
 
     <h2 class="section-title">🖥️ Server IP SA-MP</h2>
-    <div class="server-ip" id="server-status">
-      <span>Memeriksa status...</span>
+    <div class="server-ip">
+      <span>152.42.211.191:3185</span>
       <button class="copy-btn" title="Salin IP" onclick="copyText('152.42.211.191:3185')">
         <i class="fas fa-copy"></i>
       </button>
@@ -359,42 +375,6 @@
         setTimeout(() => t.classList.remove("show"), 2000);
       });
     }
-
-    function checkServerStatus() {
-      const ip = "152.42.211.191";
-      const port = 3185;
-      const url = `https://api.samp-servers.net/server/${ip}/${port}`;
-
-      fetch(url)
-        .then(response => {
-          if (!response.ok) throw new Error("Offline");
-          return response.json();
-        })
-        .then(data => {
-          const players = data.players || 0;
-          const maxPlayers = data.maxplayers || '?';
-          document.getElementById("server-status").innerHTML = `
-            <span>
-              <strong style="color:#25D366">🟢 Online</strong> • 
-              ${players}/${maxPlayers} pemain
-            </span>
-            <button class="copy-btn" title="Salin IP" onclick="copyText('${ip}:${port}')">
-              <i class="fas fa-copy"></i>
-            </button>
-          `;
-        })
-        .catch(() => {
-          document.getElementById("server-status").innerHTML = `
-            <span><strong style="color:#ff6b6b">🟢 Online</strong></span>
-            <button class="copy-btn" title="Salin IP" onclick="copyText('${ip}:${port}')">
-              <i class="fas fa-copy"></i>
-            </button>
-          `;
-        });
-    }
-
-    checkServerStatus();
-    setInterval(checkServerStatus, 30000);
   </script>
 </body>
-</html>
+  </html>
